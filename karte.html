@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reisekarte – Schleusenkräuter</title>
+<meta name="description" content="Interaktive Reisekarte der Schleusenkräuter-Bootstour: Ankerplätze, Einkäufe und Schleusen.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
+<div class="top-bar">Saison Nº 10 · Seit 2016 · Mecklenburgische Seenplatte</div>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="porthole"><img src="assets/img/logo.png" alt="Schleusenkräuter Logo"></span>
+      Schleusenkräuter
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="shop.html">Fanshop</a></li>
+        <li><a href="karte.html" class="active">Reisekarte</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+<div class="map-page-header">
+  <div class="container">
+    <h1 class="section-title" style="margin-bottom:6px;">Unsere Reisekarte</h1>
+    <p class="section-sub">Mecklenburgische Seenplatte · Start ab Priepert</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="legend">
+    <span><span class="dot" style="background:#e8b93c;"></span> Start</span>
+    <span><span class="dot anker"></span> Ankerplätze</span>
+    <span><span class="dot einkauf"></span> Einkäufe / Landgänge</span>
+    <span><span class="dot schleuse"></span> Schleusen</span>
+  </div>
+
+  <div id="reise-karte"></div>
+
+  <div class="map-note">
+    <strong>Noch im Aufbau:</strong> Diese Karte ist bereits voll funktionsfähig, wartet
+    aber noch auf eure gesammelten GPS-Koordinaten. Trag eure Punkte einfach in
+    <code>assets/js/reise-daten.js</code> ein (Ankerplätze, Einkäufe, Schleusen –
+    jeweils mit <code>lat</code>, <code>lng</code>, <code>titel</code> und <code>text</code>).
+    Die Karte zeichnet dann automatisch die Route zwischen allen Punkten ein.
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-brand">Schleusenkräuter</div>
+  <div>Der Schluck für Schleusenzeit</div>
+  <div class="footer-meta">53°38′ N · 12°58′ O · Saison Nº 10</div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="assets/js/reise-daten.js"></script>
+<script src="assets/js/karte.js"></script>
+</body>
+</html>

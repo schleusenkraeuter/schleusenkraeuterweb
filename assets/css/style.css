@@ -1,0 +1,1025 @@
+/* ===========================================================
+   Schleusenkräuter – "Der Schluck für Schleusenzeit"
+   Design: Logbuch am Nachtwasser — Bordinstrumente, Chartpapier,
+   Messing-Beschläge. Palette und Bogen-Typografie sind vom
+   Original-Logo abgeleitet.
+   =========================================================== */
+
+:root {
+  /* Nachtwasser / Marine */
+  --ink: #081510;
+  --marine: #0f2b1d;
+  --marine-2: #16382585;
+  --marine-2-solid: #163825;
+  --marine-3: #1e4a32;
+
+  /* Messing / Brass */
+  --brass: #c9a13f;
+  --brass-light: #e8c876;
+  --brass-dim: #8a6f34;
+
+  /* Chartpapier */
+  --cream: #f3ead2;
+  --cream-dim: rgba(243, 234, 210, 0.75);
+  --paper: #ece1c4;
+  --paper-ink: #241c10;
+
+  /* Signal / Akzent */
+  --rust: #b6502e;
+  --rust-light: #d97250;
+  --teal: #3f8f83;
+  --teal-light: #6cb3a8;
+
+  --shadow: 0 20px 44px rgba(3, 10, 7, 0.5);
+  --shadow-sm: 0 8px 18px rgba(3, 10, 7, 0.4);
+  --radius: 20px;
+  --radius-sm: 12px;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-mono: "IBM Plex Mono", "Consolas", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--marine);
+  background-image:
+    radial-gradient(circle at 50% -8%, #1d4029 0%, #0f2b1d 52%, var(--ink) 100%),
+    repeating-linear-gradient(0deg, rgba(201, 161, 63, 0.045) 0px, rgba(201, 161, 63, 0.045) 1px, transparent 1px, transparent 30px),
+    repeating-linear-gradient(90deg, rgba(201, 161, 63, 0.045) 0px, rgba(201, 161, 63, 0.045) 1px, transparent 1px, transparent 30px);
+  background-attachment: fixed;
+  color: var(--cream);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brass-light);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 100;
+  background: var(--brass-light);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* ---------- Utility bar ---------- */
+.top-bar {
+  background: var(--ink);
+  color: var(--brass-light);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 7px 12px;
+  border-bottom: 1px solid rgba(201, 161, 63, 0.3);
+}
+
+/* ---------- Header / Nav ---------- */
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(8, 21, 16, 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(201, 161, 63, 0.4);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.28rem;
+  color: var(--brass-light);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+}
+
+.brand img { width: 44px; height: auto; border-radius: 8px; }
+
+nav.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+nav.main-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+  color: var(--cream-dim);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 0 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+nav.main-nav a:hover,
+nav.main-nav a.active {
+  color: var(--brass-light);
+  border-color: var(--brass);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 14px 32px;
+  border-radius: 40px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  font-size: 0.98rem;
+  font-family: var(--font-body);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--brass-light), var(--brass));
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn-primary:active:not(.disabled):not([disabled]) { transform: scale(0.97); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--brass-light);
+  border-color: var(--brass);
+}
+
+.btn-secondary:hover {
+  background: rgba(201, 161, 63, 0.12);
+  border-color: var(--brass-light);
+}
+
+.btn-secondary:active:not(.disabled):not([disabled]) { transform: scale(0.97); }
+
+.btn[disabled],
+.btn.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  filter: grayscale(0.3);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 76px 24px 56px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.compass-rose {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(78vw, 720px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -46%);
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.compass-rose::before,
+.compass-rose::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.compass-rose::before {
+  background: repeating-conic-gradient(from 0deg, var(--brass) 0deg 0.35deg, transparent 0.35deg 11.25deg);
+  -webkit-mask-image: radial-gradient(circle, transparent 36%, #000 39%, #000 61%, transparent 64%);
+  mask-image: radial-gradient(circle, transparent 36%, #000 39%, #000 61%, transparent 64%);
+  animation: compass-spin 200s linear infinite;
+}
+
+.compass-rose::after {
+  background: repeating-conic-gradient(from 45deg, var(--brass-light) 0deg 1deg, transparent 1deg 90deg);
+  -webkit-mask-image: radial-gradient(circle, transparent 62%, #000 65%, #000 74%, transparent 77%);
+  mask-image: radial-gradient(circle, transparent 62%, #000 65%, #000 74%, transparent 77%);
+}
+
+@keyframes compass-spin {
+  to { transform: rotate(360deg); }
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--brass-light);
+  background: rgba(201, 161, 63, 0.12);
+  border: 1px solid rgba(201, 161, 63, 0.45);
+  border-radius: 30px;
+  padding: 6px 16px;
+  margin-bottom: 26px;
+}
+
+.hero-badge-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.hero .logo-hero {
+  width: 220px;
+  margin: 0 auto;
+  filter: drop-shadow(var(--shadow));
+}
+
+.stamp {
+  position: absolute;
+  right: calc(50% - 168px);
+  bottom: -14px;
+  width: 108px;
+  height: 108px;
+  color: var(--rust-light);
+  transform: rotate(-11deg);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
+}
+
+.stamp text { fill: currentColor; }
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  margin: 0 0 10px;
+  color: var(--cream);
+  letter-spacing: -0.5px;
+}
+
+.hero .claim {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.35rem;
+  color: var(--brass-light);
+  margin-bottom: 24px;
+}
+
+.hero .lead {
+  max-width: 640px;
+  margin: 0 auto 28px;
+  font-size: 1.08rem;
+  color: var(--cream-dim);
+}
+
+.coordinate-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.8px;
+  color: var(--teal-light);
+  margin-bottom: 34px;
+  opacity: 0.9;
+}
+
+.coordinate-tag::before { content: "◈ "; color: var(--brass); }
+
+/* ---------- Wave dividers ---------- */
+.wave-divider {
+  display: block;
+  width: 100%;
+  height: 54px;
+  margin: -1px 0;
+  line-height: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.wave-divider svg { width: 100%; height: 100%; display: block; }
+
+.wave-divider.flip { transform: rotate(180deg); }
+
+/* ---------- Sections ---------- */
+section {
+  padding: 64px 0;
+  border-top: 1px solid rgba(201, 161, 63, 0.15);
+  position: relative;
+}
+
+.eyebrow {
+  display: block;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+  color: var(--cream);
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.section-sub {
+  text-align: center;
+  color: var(--brass-light);
+  font-family: var(--font-display);
+  font-style: italic;
+  margin-bottom: 44px;
+}
+
+/* ---------- Countdown / Bordinstrument ---------- */
+.countdown-box {
+  background:
+    repeating-linear-gradient(135deg, rgba(243, 234, 210, 0.025) 0px, rgba(243, 234, 210, 0.025) 2px, transparent 2px, transparent 14px),
+    var(--marine-2-solid);
+  border: 1px solid rgba(201, 161, 63, 0.5);
+  border-radius: var(--radius);
+  padding: 44px 28px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.countdown-box h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--cream);
+  margin-top: 0;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 30px 0 14px;
+}
+
+.countdown-timer .unit {
+  background: var(--ink);
+  border: 1.5px solid var(--brass);
+  border-radius: 14px;
+  min-width: 92px;
+  padding: 18px 10px;
+  box-shadow: inset 0 0 0 3px rgba(201, 161, 63, 0.12);
+}
+
+.countdown-timer .unit .num {
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--brass-light);
+  font-family: var(--font-mono);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-timer .unit .label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--cream-dim);
+  margin-top: 8px;
+  font-family: var(--font-mono);
+}
+
+.countdown-note {
+  font-size: 0.94rem;
+  color: var(--cream-dim);
+}
+
+.countdown-expired {
+  font-size: 1.3rem;
+  color: var(--brass-light);
+  font-weight: 700;
+  font-family: var(--font-display);
+}
+
+/* ---------- Logbuch-Seiten (Chartpapier-Karten) ---------- */
+.logbook-page {
+  background: var(--paper);
+  color: var(--paper-ink);
+  border-radius: 6px;
+  padding: 38px 40px;
+  box-shadow: var(--shadow);
+  position: relative;
+  transform: rotate(-0.6deg);
+  border: 1px solid rgba(36, 28, 16, 0.12);
+}
+
+.logbook-page::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px dashed rgba(36, 28, 16, 0.25);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.logbook-page .rivet {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--brass-light), var(--brass-dim) 75%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.logbook-page .rivet.tl { top: 14px; left: 14px; }
+.logbook-page .rivet.tr { top: 14px; right: 14px; }
+.logbook-page .rivet.bl { bottom: 14px; left: 14px; }
+.logbook-page .rivet.br { bottom: 14px; right: 14px; }
+
+.logbook-tab {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--marine-2-solid);
+  background: var(--brass-light);
+  padding: 4px 12px;
+  border-radius: 3px;
+  margin-bottom: 18px;
+  transform: rotate(1deg);
+}
+
+.logbook-page h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--marine-2-solid);
+  margin: 0 0 6px;
+}
+
+.logbook-page .section-sub {
+  color: var(--rust);
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.logbook-page p { color: var(--paper-ink); opacity: 0.92; }
+.logbook-page p:last-child { margin-bottom: 0; }
+.logbook-page strong { color: var(--marine-2-solid); }
+
+/* ---------- Tasting notes / product ---------- */
+.tasting-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 10px;
+}
+
+.tasting-card {
+  background: var(--marine-2-solid);
+  border: 1px solid rgba(201, 161, 63, 0.35);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  text-align: left;
+  position: relative;
+}
+
+.tasting-card .step {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: var(--brass);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.tasting-card .icon { font-size: 1.9rem; margin-bottom: 8px; display: block; }
+
+.tasting-card h3 {
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.tasting-card p { color: var(--cream-dim); margin: 0; }
+
+.ingredients-box {
+  background: var(--marine-2-solid);
+  border-left: 3px solid var(--brass);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 28px 32px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.ingredients-box ul { margin: 12px 0 0; padding-left: 20px; }
+.ingredients-box li { margin-bottom: 8px; color: var(--cream-dim); }
+
+/* ---------- Crew ---------- */
+.crew-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 22px;
+}
+
+.crew-card {
+  background: var(--marine-2-solid);
+  border: 1px solid rgba(201, 161, 63, 0.3);
+  border-radius: var(--radius);
+  padding: 28px 20px 24px;
+  text-align: center;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.crew-card:hover { transform: translateY(-4px); border-color: rgba(201, 161, 63, 0.6); }
+
+.crew-avatar {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+}
+
+.crew-avatar::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: repeating-conic-gradient(var(--brass) 0deg 4deg, transparent 4deg 12deg);
+  opacity: 0.7;
+}
+
+.crew-avatar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--brass);
+}
+
+.crew-avatar span {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--brass-light);
+}
+
+.crew-card h3 {
+  margin: 0 0 4px;
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.crew-role {
+  color: var(--brass);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+}
+
+.crew-card p.desc {
+  font-size: 0.92rem;
+  color: var(--cream-dim);
+}
+
+/* ---------- Route teaser ---------- */
+.route-box {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+@media (max-width: 760px) {
+  .route-box { grid-template-columns: 1fr; }
+}
+
+.route-map-teaser {
+  background: var(--marine-2-solid);
+  border: 1.5px dashed var(--brass);
+  border-radius: var(--radius);
+  padding: 30px;
+  text-align: center;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.route-map-teaser .pin { font-size: 2.2rem; }
+.route-map-teaser strong { font-family: var(--font-display); color: var(--cream); }
+
+/* ---------- Footer ---------- */
+footer.site-footer {
+  border-top: 1px solid rgba(201, 161, 63, 0.4);
+  padding: 38px 24px 44px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(243, 234, 210, 0.6);
+}
+
+footer.site-footer .footer-brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--brass-light);
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+footer.site-footer .footer-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.6px;
+  color: var(--teal-light);
+  opacity: 0.85;
+}
+
+footer.site-footer .disclaimer {
+  max-width: 640px;
+  margin: 16px auto 0;
+  font-size: 0.78rem;
+  opacity: 0.75;
+}
+
+/* ---------- Shop ---------- */
+.shop-header {
+  text-align: center;
+  padding: 54px 24px 20px;
+}
+
+.shop-header h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--cream);
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  margin-bottom: 8px;
+}
+
+.shop-banner {
+  background: var(--rust);
+  color: var(--cream);
+  text-align: center;
+  padding: 11px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 26px;
+  padding: 32px 0 72px;
+}
+
+.product-card {
+  background: var(--marine-2-solid);
+  border: 1px solid rgba(201, 161, 63, 0.3);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+.product-media {
+  position: relative;
+  background: var(--ink);
+  padding: 26px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-media img {
+  width: 110px;
+  opacity: 0.92;
+  filter: grayscale(0.15);
+}
+
+.sold-out-stamp {
+  position: absolute;
+  top: 16px;
+  right: -34px;
+  transform: rotate(35deg);
+  background: var(--rust);
+  color: var(--cream);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 6px 40px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.product-body {
+  padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-body h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--cream);
+  margin: 0 0 4px;
+}
+
+.product-price {
+  color: var(--brass-light);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.product-price .old { text-decoration: line-through; opacity: 0.6; margin-left: 6px; font-weight: 400; }
+
+.product-reason {
+  font-size: 0.88rem;
+  color: var(--cream-dim);
+  background: rgba(0, 0, 0, 0.22);
+  border-left: 3px solid var(--brass);
+  padding: 12px 14px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.product-reason strong { color: var(--brass-light); }
+
+.product-body .btn { align-self: flex-start; margin-top: auto; }
+
+/* ---------- Karte page ---------- */
+.map-page-header {
+  text-align: center;
+  padding: 54px 24px 10px;
+}
+
+#reise-karte {
+  height: 560px;
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--brass);
+  box-shadow: var(--shadow);
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  flex-wrap: wrap;
+  margin: 22px 0 14px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--cream-dim);
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend .dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1.5px solid rgba(243, 234, 210, 0.5);
+}
+
+.dot.anker { background: #4f9dff; }
+.dot.einkauf { background: #ffcc4f; }
+.dot.schleuse { background: #ff6b4f; }
+
+.map-note {
+  max-width: 700px;
+  margin: 26px auto 60px;
+  background: var(--marine-2-solid);
+  border: 1px solid rgba(201, 161, 63, 0.35);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  font-size: 0.92rem;
+  color: var(--cream-dim);
+}
+
+.map-note code {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--brass-light);
+  font-family: var(--font-mono);
+}
+
+/* ---------- Maritime Deko ---------- */
+
+.porthole {
+  position: relative;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #cfe9ff 0%, #6fa8c9 35%, #123321 75%);
+  border: 5px solid var(--brass);
+  box-shadow:
+    0 0 0 3px var(--ink),
+    0 0 0 6px rgba(201, 161, 63, 0.3),
+    inset 0 0 18px rgba(0, 0, 0, 0.55),
+    var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.porthole::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 8px 16px rgba(255, 255, 255, 0.15), inset 0 -10px 20px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.hero .logo-hero.porthole {
+  width: 200px;
+  height: 200px;
+  padding: 18px;
+}
+
+.hero .logo-hero.porthole img { width: 100%; height: 100%; object-fit: contain; }
+
+.brand .porthole {
+  width: 44px;
+  height: 44px;
+  border-width: 3px;
+  flex-shrink: 0;
+}
+
+.brand .porthole img { width: 70%; height: 70%; object-fit: contain; }
+
+/* Tau / Seil als Trenner */
+.rope-divider {
+  height: 9px;
+  border-radius: 6px;
+  margin: 0 auto 10px;
+  max-width: 760px;
+  background: repeating-linear-gradient(45deg, #c9a25b 0 6px, #8a6a34 6px 12px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Anker vor Section-Titeln */
+.section-title.anchor::before {
+  content: "⚓";
+  display: inline-block;
+  margin-right: 10px;
+  color: var(--brass);
+  font-size: 0.85em;
+}
+
+/* Segeltuch-Textur für Panels */
+.panel {
+  background:
+    repeating-linear-gradient(135deg, rgba(243, 234, 210, 0.03) 0px, rgba(243, 234, 210, 0.03) 2px, transparent 2px, transparent 14px),
+    var(--marine-2-solid);
+}
+
+/* Produkt-Icons im Shop: Bullauge statt Logo-Wiederholung */
+.product-media.porthole-media {
+  background: var(--ink);
+  padding: 30px;
+}
+
+.product-media .porthole {
+  width: 140px;
+  height: 140px;
+  padding: 0;
+}
+
+.product-media .porthole img {
+  width: 62%;
+  height: 62%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Echte Produktfotos (kein Bullauge, volle Fläche) */
+.product-media.photo {
+  padding: 0;
+  aspect-ratio: 1 / 1;
+  background: var(--ink);
+}
+
+.product-media.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  filter: none;
+}
+
+.product-media.photo .real-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(8, 21, 16, 0.85);
+  border: 1px solid var(--brass);
+  color: var(--brass-light);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.5px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+/* ---------- Responsive nav ---------- */
+@media (max-width: 640px) {
+  .nav-inner { flex-direction: column; gap: 10px; }
+  nav.main-nav ul { gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .stamp { right: calc(50% - 96px); width: 84px; height: 84px; }
+  .logbook-page { padding: 30px 22px; }
+}

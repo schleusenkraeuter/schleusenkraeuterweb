@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schleusenkräuter – Der Schluck für Schleusenzeit</title>
+<meta name="description" content="Schleusenkräuter: der einzige Kräuterschnaps, der genau so lange braucht wie eine Schleusung. Aus der Schleuse in die ganze Welt.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
+<div class="top-bar">Saison Nº 10 · Seit 2016 · Mecklenburgische Seenplatte</div>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="porthole"><img src="assets/img/logo.png" alt="Schleusenkräuter Logo"></span>
+      Schleusenkräuter
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" class="active">Start</a></li>
+        <li><a href="shop.html">Fanshop</a></li>
+        <li><a href="karte.html">Reisekarte</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+<section class="hero">
+  <div class="compass-rose" aria-hidden="true"></div>
+  <div class="container">
+    <span class="hero-eyebrow"><span aria-hidden="true">⚓</span> Jubiläumsfahrt 2026</span>
+    <div class="hero-badge-row">
+      <div class="logo-hero porthole">
+        <img src="assets/img/logo.png" alt="Schleusenkräuter Logo">
+      </div>
+      <svg class="stamp" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <path id="stampCircle" d="M 100,100 m -76,0 a 76,76 0 1,1 152,0 a 76,76 0 1,1 -152,0" />
+        </defs>
+        <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="2"></circle>
+        <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+        <text font-family="var(--font-mono)" font-size="11.5" letter-spacing="3.2" fill="currentColor">
+          <textPath href="#stampCircle" startOffset="2%">10 JAHRE · SCHLEUSENKRÄUTER · SEIT 2016 ·</textPath>
+        </text>
+        <text x="100" y="115" text-anchor="middle" font-family="var(--font-display)" font-weight="700" font-size="52" fill="currentColor">X</text>
+      </svg>
+    </div>
+    <h1>Schleusenkräuter</h1>
+    <p class="claim">„Der Schluck für Schleusenzeit“</p>
+    <p class="lead">
+      40&nbsp;% vol. Wartezeit, veredelt. Seit Generationen von Bootsurlaubern
+      an deutschen Binnenschleusen ignoriert, jetzt endlich in Flaschenform:
+      <strong>Schleusenkräuter</strong> – der Kräuterschnaps, der genau so lange
+      braucht wie eine Schleusung, aber deutlich besser schmeckt.
+    </p>
+    <span class="coordinate-tag">53°38′ N · 12°58′ O — Start: Priepert</span>
+    <div>
+      <a href="shop.html" class="btn btn-primary">Zum Fanshop</a>
+      <a href="#geschichte" class="btn btn-secondary">Die Geschichte</a>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z" fill="#163825"></path>
+  </svg>
+</div>
+
+<section id="countdown" class="panel" style="border-top:none;padding-top:20px;">
+  <div class="container">
+    <div class="countdown-box">
+      <h2><span aria-hidden="true">⚓</span> Bis zum Ablegen in Priepert</h2>
+      <p class="countdown-note">Dann heißt es wieder: Leinen los, Poller frei, Schleusenkräuter kalt gestellt.</p>
+      <div class="countdown-timer" id="countdown-timer">
+        <div class="unit"><div class="num" id="cd-days">00</div><div class="label">Tage</div></div>
+        <div class="unit"><div class="num" id="cd-hours">00</div><div class="label">Stunden</div></div>
+        <div class="unit"><div class="num" id="cd-minutes">00</div><div class="label">Minuten</div></div>
+        <div class="unit"><div class="num" id="cd-seconds">00</div><div class="label">Sekunden</div></div>
+      </div>
+      <p id="countdown-expired" class="countdown-expired" style="display:none;"></p>
+      <p class="countdown-note">13.07.2026, 13:00 Uhr – Start der Tour auf der Mecklenburgischen Seenplatte, ab Priepert.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider flip">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z" fill="#163825"></path>
+  </svg>
+</div>
+
+<section id="jubilaeum" style="border-top:none;">
+  <div class="container">
+    <div class="logbook-page">
+      <span class="rivet tl"></span><span class="rivet tr"></span><span class="rivet bl"></span><span class="rivet br"></span>
+      <div class="route-box">
+        <div style="display:flex;justify-content:center;">
+          <img src="assets/img/tshirt-design-10jahre.png" alt="10 Jahre Bootstour – Summerfeeling Pur" style="max-width:320px;width:100%;filter:drop-shadow(0 10px 24px rgba(0,0,0,0.35));">
+        </div>
+        <div>
+          <span class="logbook-tab">Logbuch · Eintrag Nº 10</span>
+          <h2 class="anchor">10 Jahre Bootstour</h2>
+          <p class="section-sub">Summerfeeling pur, seit einer Dekade</p>
+          <p>
+            Aus einem spontanen Wochenende auf der Seenplatte ist eine Institution geworden:
+            2026 heißt es zum zehnten Mal „Leinen los“ – mit derselben Crew, denselben
+            Diskussionen über die Vorfahrtsregeln an der Schleuse und, neuerdings, mit
+            eigenem Kräuterschnaps. Dieses Motiv ziert dieses Jahr das offizielle Crew-Shirt.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="geschichte" style="border-top:none;">
+  <div class="container">
+    <span class="eyebrow">Kapitänslog</span>
+    <h2 class="section-title">Aus der Schleuse in die ganze Welt</h2>
+    <p class="section-sub" style="text-align:center;">Eine (weitgehend wahre) Entstehungsgeschichte</p>
+    <div class="logbook-page" style="max-width:760px;margin:0 auto;transform:rotate(0.5deg);">
+      <span class="rivet tl"></span><span class="rivet tr"></span><span class="rivet bl"></span><span class="rivet br"></span>
+      <span class="logbook-tab">Eintrag · Schleuse Mirow, 23:40 Uhr</span>
+      <p>
+        Es war eine laue Sommernacht vor der Schleuse Mirow. Sechs Männer, ein Boot,
+        null Ahnung, wie lange so eine Schleusung eigentlich dauert. Nach der dritten
+        Runde „Sind wir jetzt oben oder unten?“ war klar: Diese Wartezeit braucht
+        Veredelung. Aus Bordvorräten, gutem Willen und einer gehörigen Portion
+        Verzweiflung entstand die erste Charge <strong>Schleusenkräuter</strong> –
+        und ist bis heute die einzige Spirituose, die offiziell nach Wasserstraßenverkehrsordnung
+        gebraut sein könnte, wäre das nicht ausdrücklich verboten.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="verkostung">
+  <div class="container">
+    <h2 class="section-title">So schmeckt Schleusenzeit</h2>
+    <p class="section-sub">Verkostungsnotizen von Leuten, die eigentlich nur aufs Klo mussten</p>
+    <div class="tasting-grid">
+      <div class="tasting-card">
+        <span class="step">Station 01</span>
+        <div class="icon" aria-hidden="true">👃</div>
+        <h3>Nase</h3>
+        <p>Diesel, Dill und ein Hauch von Bootslack. Sehr maritim, sehr ehrlich.</p>
+      </div>
+      <div class="tasting-card">
+        <span class="step">Station 02</span>
+        <div class="icon" aria-hidden="true">👅</div>
+        <h3>Gaumen</h3>
+        <p>Poller-Rost trifft Pfefferminz. Kräftig genug, um jede Anlegepanik zu betäuben.</p>
+      </div>
+      <div class="tasting-card">
+        <span class="step">Station 03</span>
+        <div class="icon" aria-hidden="true">⏳</div>
+        <h3>Abgang</h3>
+        <p>Lang. Sehr lang. Ungefähr so lang wie die Wartezeit vor der Schleuse an einem Sonntagnachmittag.</p>
+      </div>
+      <div class="tasting-card">
+        <span class="step">Station 04</span>
+        <div class="icon" aria-hidden="true">🍀</div>
+        <h3>Wirkung</h3>
+        <p>Macht aus jedem Landratten-Manöver eine Geschichte, die beim nächsten Schleusenwärter für Aufsehen sorgt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="zutaten">
+  <div class="container">
+    <h2 class="section-title anchor">Zutaten</h2>
+    <p class="section-sub">100&nbsp;% Bordvorrat, streng geheimes Rezept</p>
+    <div class="rope-divider"></div>
+    <div class="ingredients-box">
+      <p>Nach original Kombüsen-Rezeptur, seit der ersten Tour unverändert (behaupten wir zumindest):</p>
+      <ul>
+        <li>Wacholder, gepflückt in Sichtweite des Schleusenwärterhäuschens</li>
+        <li>Ein Schuss Dieselgeruch (rein olfaktorisch, versprochen)</li>
+        <li>6 Teile Vorfreude auf den nächsten Landgang</li>
+        <li>1 Prise Poller-Rost, für die Mineralstoffe</li>
+        <li>Destilliertes Elbe-Havel-Wasserstraßen-Wasser (gefiltert!)</li>
+        <li>Eine großzügige Menge Optimismus bezüglich der Wetter-App</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z" fill="#163825"></path>
+  </svg>
+</div>
+
+<section id="crew" class="panel" style="border-top:none;padding-top:20px;">
+  <div class="container">
+    <h2 class="section-title">Die Crew</h2>
+    <p class="section-sub">Verkostungskomitee, Schleusenwarte und moralische Unterstützung</p>
+    <div class="crew-grid">
+      <div class="crew-card">
+        <div class="crew-avatar"><span>L</span></div>
+        <h3>Lennart</h3>
+        <div class="crew-role">Kapitän &amp; Kursbestimmer</div>
+        <p class="desc">Hat die Seekarte im Griff, meistens auch das Boot. Erste Amtshandlung an jeder Schleuse: laut ansagen, wie tief wir jetzt sind.</p>
+      </div>
+      <div class="crew-card">
+        <div class="crew-avatar"><span>H</span></div>
+        <h3>Henrik</h3>
+        <div class="crew-role">Erster Maat</div>
+        <p class="desc">Zuständig für Leinen, Fender und die Aussage „Das schaffen wir locker“ kurz vor jedem Anlegemanöver.</p>
+      </div>
+      <div class="crew-card">
+        <div class="crew-avatar"><span>P</span></div>
+        <h3>Patrick</h3>
+        <div class="crew-role">Schleusenwart &amp; Webmaster</div>
+        <p class="desc">Kennt jede Handkurbel persönlich. Hat außerdem diese Website gebaut, während er eigentlich schon hätte packen sollen.</p>
+      </div>
+      <div class="crew-card">
+        <div class="crew-avatar"><span>J</span></div>
+        <h3>Jonas</h3>
+        <div class="crew-role">Proviantmeister</div>
+        <p class="desc">Plant den Einkauf für sechs Personen, kauft für zwölf. Trägt die Verantwortung für den Kühlbox-Frieden.</p>
+      </div>
+      <div class="crew-card">
+        <div class="crew-avatar"><span>T</span></div>
+        <h3>Till</h3>
+        <div class="crew-role">Bordmusik &amp; Stimmung</div>
+        <p class="desc">Bringt die Boxen, die gute Laune und mindestens eine Schnapsidee pro Schleusung.</p>
+      </div>
+      <div class="crew-card">
+        <div class="crew-avatar"><span>F</span></div>
+        <h3>Florian</h3>
+        <div class="crew-role">Nachtwache</div>
+        <p class="desc">Schläft leicht, wacht bei jedem Poller-Geräusch auf und ruft dann sicherheitshalber „Steuerbord!“.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider flip">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z" fill="#163825"></path>
+  </svg>
+</div>
+
+<section id="reise" style="border-top:none;">
+  <div class="container">
+    <h2 class="section-title">Wo wir hinfahren</h2>
+    <p class="section-sub">Mecklenburgische Seenplatte, Start ab Priepert</p>
+    <div class="route-box">
+      <div>
+        <p>
+          Wie jedes Jahr geht es auf die <strong>Mecklenburgische Seenplatte</strong> –
+          eines der größten zusammenhängenden Wassersportreviere Europas, gefühlt aber
+          hauptsächlich bekannt für seine Schleusen, die genau dann kommen, wenn man
+          gerade angefangen hat, sich einen Schleusenkräuter einzuschenken.
+        </p>
+        <p>
+          Startpunkt ist traditionell <strong>Priepert</strong> – von dort geht's über
+          Seen, Kanäle und diverse Schleusen quer durch die Region, mit dem festen Ziel,
+          möglichst viele Anlegestellen, Kioske und Bäckereien zu testen.
+        </p>
+        <a href="karte.html" class="btn btn-secondary">Zur Reisekarte</a>
+      </div>
+      <div class="route-map-teaser">
+        <div class="pin" aria-hidden="true">🗺️</div>
+        <strong>Interaktive Reisekarte – bald verfügbar</strong>
+        <p style="margin:0;font-size:0.92rem;opacity:0.85;">
+          Ankerplätze, Einkäufe und Schleusen werden während der Tour per GPS
+          eingesammelt und hier live dokumentiert.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-brand">Schleusenkräuter</div>
+  <div>Der Schluck für Schleusenzeit · Mecklenburgische Seenplatte · seit diesem einen Abend vor der Schleuse Mirow</div>
+  <div class="footer-meta">53°38′ N · 12°58′ O · Saison Nº 10</div>
+  <p class="disclaimer">
+    Schleusenkräuter ist ein fiktives Fanprojekt von Lennart, Henrik, Patrick, Jonas, Till
+    und Florian für ihren jährlichen Bootsurlaub und wird nicht kommerziell vertrieben.
+    Kein Kräuterschnaps wurde beim Anlegen tatsächlich verschüttet – ausdrücklich alle.
+  </p>
+</footer>
+
+<script src="assets/js/countdown.js"></script>
+</body>
+</html>
