@@ -142,7 +142,7 @@ header.site-header {
   letter-spacing: 0.3px;
 }
 
-.brand img { width: 44px; height: auto; border-radius: 8px; }
+.brand-logo { width: 58px; height: auto; flex-shrink: 0; }
 
 nav.main-nav ul {
   list-style: none;
@@ -225,47 +225,35 @@ nav.main-nav a.active {
 .hero {
   position: relative;
   text-align: center;
-  padding: 76px 24px 56px;
-  overflow: hidden;
-  isolation: isolate;
+  line-height: 0;
+  padding: 0;
+  border-top: none;
 }
 
-.compass-rose {
+.hero-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-content {
   position: absolute;
-  top: 50%;
   left: 50%;
-  width: min(78vw, 720px);
-  aspect-ratio: 1;
-  transform: translate(-50%, -46%);
-  border-radius: 50%;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.55;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  line-height: 1.65;
+  padding: 90px 24px 40px;
+  background: linear-gradient(180deg, transparent 0%, rgba(8, 21, 16, 0.5) 30%, rgba(8, 21, 16, 0.88) 68%, var(--ink) 100%);
 }
 
-.compass-rose::before,
-.compass-rose::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-}
-
-.compass-rose::before {
-  background: repeating-conic-gradient(from 0deg, var(--brass) 0deg 0.35deg, transparent 0.35deg 11.25deg);
-  -webkit-mask-image: radial-gradient(circle, transparent 36%, #000 39%, #000 61%, transparent 64%);
-  mask-image: radial-gradient(circle, transparent 36%, #000 39%, #000 61%, transparent 64%);
-  animation: compass-spin 200s linear infinite;
-}
-
-.compass-rose::after {
-  background: repeating-conic-gradient(from 45deg, var(--brass-light) 0deg 1deg, transparent 1deg 90deg);
-  -webkit-mask-image: radial-gradient(circle, transparent 62%, #000 65%, #000 74%, transparent 77%);
-  mask-image: radial-gradient(circle, transparent 62%, #000 65%, #000 74%, transparent 77%);
-}
-
-@keyframes compass-spin {
-  to { transform: rotate(360deg); }
+@media (max-width: 700px) {
+  .hero-content {
+    position: static;
+    transform: none;
+    background: var(--ink);
+    padding: 36px 24px 40px;
+  }
 }
 
 .hero-eyebrow {
@@ -283,32 +271,6 @@ nav.main-nav a.active {
   padding: 6px 16px;
   margin-bottom: 26px;
 }
-
-.hero-badge-row {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 22px;
-}
-
-.hero .logo-hero {
-  width: 220px;
-  margin: 0 auto;
-  filter: drop-shadow(var(--shadow));
-}
-
-.stamp {
-  position: absolute;
-  right: calc(50% - 168px);
-  bottom: -14px;
-  width: 108px;
-  height: 108px;
-  color: var(--rust-light);
-  transform: rotate(-11deg);
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
-}
-
-.stamp text { fill: currentColor; }
 
 .hero h1 {
   font-family: var(--font-display);
@@ -559,8 +521,6 @@ section {
   margin-bottom: 10px;
 }
 
-.tasting-card .icon { font-size: 1.9rem; margin-bottom: 8px; display: block; }
-
 .tasting-card h3 {
   color: var(--cream);
   font-family: var(--font-display);
@@ -683,7 +643,6 @@ section {
   gap: 10px;
 }
 
-.route-map-teaser .pin { font-size: 2.2rem; }
 .route-map-teaser strong { font-family: var(--font-display); color: var(--cream); }
 
 /* ---------- Footer ---------- */
@@ -768,7 +727,10 @@ footer.site-footer .disclaimer {
   position: relative;
   background: var(--ink);
   padding: 26px;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 3 / 2;
+  min-height: 0;
+  flex-shrink: 0;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -924,23 +886,6 @@ footer.site-footer .disclaimer {
   pointer-events: none;
 }
 
-.hero .logo-hero.porthole {
-  width: 200px;
-  height: 200px;
-  padding: 18px;
-}
-
-.hero .logo-hero.porthole img { width: 100%; height: 100%; object-fit: contain; }
-
-.brand .porthole {
-  width: 44px;
-  height: 44px;
-  border-width: 3px;
-  flex-shrink: 0;
-}
-
-.brand .porthole img { width: 70%; height: 70%; object-fit: contain; }
-
 /* Tau / Seil als Trenner */
 .rope-divider {
   height: 9px;
@@ -949,15 +894,6 @@ footer.site-footer .disclaimer {
   max-width: 760px;
   background: repeating-linear-gradient(45deg, #c9a25b 0 6px, #8a6a34 6px 12px);
   box-shadow: var(--shadow-sm);
-}
-
-/* Anker vor Section-Titeln */
-.section-title.anchor::before {
-  content: "⚓";
-  display: inline-block;
-  margin-right: 10px;
-  color: var(--brass);
-  font-size: 0.85em;
 }
 
 /* Segeltuch-Textur für Panels */
@@ -989,7 +925,6 @@ footer.site-footer .disclaimer {
 /* Echte Produktfotos (kein Bullauge, volle Fläche) */
 .product-media.photo {
   padding: 0;
-  aspect-ratio: 1 / 1;
   background: var(--ink);
 }
 
@@ -1001,25 +936,9 @@ footer.site-footer .disclaimer {
   filter: none;
 }
 
-.product-media.photo .real-badge {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: rgba(8, 21, 16, 0.85);
-  border: 1px solid var(--brass);
-  color: var(--brass-light);
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.5px;
-  padding: 3px 9px;
-  border-radius: 20px;
-  text-transform: uppercase;
-}
-
 /* ---------- Responsive nav ---------- */
 @media (max-width: 640px) {
   .nav-inner { flex-direction: column; gap: 10px; }
   nav.main-nav ul { gap: 16px; flex-wrap: wrap; justify-content: center; }
-  .stamp { right: calc(50% - 96px); width: 84px; height: 84px; }
   .logbook-page { padding: 30px 22px; }
 }
