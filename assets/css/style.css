@@ -630,6 +630,16 @@ section {
   .route-box { grid-template-columns: 1fr; }
 }
 
+.shirt-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--ink);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
 .route-map-teaser {
   background: var(--marine-2-solid);
   border: 1.5px dashed var(--brass);
