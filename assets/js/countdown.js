@@ -1,5 +1,6 @@
 // Countdown bis zur nächsten Bootstour ab Priepert
 // Ziel: 13.07.2026, 13:00 Uhr (Europe/Berlin)
+// Vor dem Start zählt die Uhr runter, danach automatisch hoch (Zeit an Bord).
 // Wenn ihr das nächste Mal ablegt, einfach TARGET_DATE anpassen.
 
 (function () {
@@ -11,7 +12,8 @@
     minutes: document.getElementById("cd-minutes"),
     seconds: document.getElementById("cd-seconds"),
     wrapper: document.getElementById("countdown-timer"),
-    expired: document.getElementById("countdown-expired"),
+    heading: document.getElementById("countdown-heading"),
+    note: document.getElementById("countdown-note-top"),
   };
 
   if (!els.wrapper) return;
@@ -20,18 +22,22 @@
     return String(n).padStart(2, "0");
   }
 
+  let departed = false;
+
+  function switchToDepartedCopy() {
+    if (departed) return;
+    departed = true;
+    if (els.heading) els.heading.textContent = "Seit dem Ablegen in Priepert";
+    if (els.note) els.note.textContent = "Leinen sind los, Poller sind frei – die Crew ist auf großer Fahrt.";
+  }
+
   function tick() {
     const now = new Date();
-    const diff = TARGET_DATE - now;
+    let diff = TARGET_DATE - now;
 
     if (diff <= 0) {
-      els.wrapper.style.display = "none";
-      if (els.expired) {
-        els.expired.style.display = "block";
-        els.expired.textContent = "⚓ Leinen los! Wir sind auf der Seenplatte – Nachschub gibt's erst nach der Heimkehr.";
-      }
-      clearInterval(timer);
-      return;
+      switchToDepartedCopy();
+      diff = now - TARGET_DATE;
     }
 
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -46,5 +52,5 @@
   }
 
   tick();
-  const timer = setInterval(tick, 1000);
+  setInterval(tick, 1000);
 })();
