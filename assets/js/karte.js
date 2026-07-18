@@ -60,6 +60,17 @@
   // Route optisch verbinden, sobald mehr als der Startpunkt vorhanden ist
   if (allPoints.length > 1) {
     L.polyline(allPoints, { color: "#e8b93c", weight: 3, dashArray: "6 8", opacity: 0.8 }).addTo(map);
+  }
+
+  // Echte GPS-Aufzeichnung der Tour (aus assets/js/route-track.js), falls vorhanden
+  if (typeof ROUTE_TRACK !== "undefined" && ROUTE_TRACK.length) {
+    ROUTE_TRACK.forEach((segment) => {
+      L.polyline(segment, { color: "#3f8f83", weight: 4, opacity: 0.85, lineJoin: "round" }).addTo(map);
+      allPoints.push(...segment);
+    });
+  }
+
+  if (allPoints.length > 1) {
     map.fitBounds(allPoints, { padding: [40, 40] });
   }
 })();
